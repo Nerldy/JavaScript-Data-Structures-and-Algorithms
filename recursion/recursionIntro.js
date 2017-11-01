@@ -72,9 +72,31 @@ function recursiveWithMultiplier(arr = [], num = 0) {
     return grabArray(counter);
 }
 
-const myArray = [5, 6, 9, 7, 8, 12];
+// const myArray = [5, 6, 9, 7, 8, 12];
 
-console.log(recursiveWithMultiplier(myArray, 2));
+// console.log(recursiveWithMultiplier(myArray, 2));
 
 
 //6. Write a function 'recursiveReverse' that takes an array and uses recursion to return its contents in reverse
+
+function recursiveReverse(...array) {
+    let arrayLength = array.length - 1;
+    let newArray = [];
+
+    if (array.length === 0) {
+        return 0;
+    }
+
+    function fromLastIndex(i) {
+        if (i === -1) {
+            return newArray;
+        }
+        newArray.push(array[i]);
+
+        return fromLastIndex(--i);
+    }
+
+    return fromLastIndex(arrayLength);
+}
+
+console.log(recursiveReverse(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
